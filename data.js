@@ -4,8 +4,8 @@ export const tweetsData = [
         profilePic: `images/troll.jpg`,
         likes: 27,
         retweets: 10,
-        tweetText: `Buy Bitcoin, ETH Make 💰💰💰 low low prices. 
-            Guaranteed return on investment. HMU DMs open!!`,
+        tweetText: `Compra bitcoins 💰💰💰 precios bajos. 
+            Retorno de inversion garantizado. Manda dm y gana mucho dinero!!`,
         replies: [],
         isLiked: false,
         isRetweeted: false,
@@ -16,17 +16,18 @@ export const tweetsData = [
         profilePic: `images/musk.png`,
         likes: 6500,
         retweets: 234,
-        tweetText: `I need volunteers for a one-way mission to Mars 🪐. No experience necessary🚀`,
+        tweetText: `Necesito voluntarios para una mision a marte 🪐. 
+        No se requiere experiencia previa🚀`,
         replies: [
                   {
                 handle: `@TomCruise ✅`,
                 profilePic: `images/tcruise.png`,
-                tweetText: `Yes! Sign me up! 😎🛩`,
+                tweetText: `Siii, donde me apunto?! 😎🛩`,
             },
                   {
                 handle: `@ChuckNorris ✅`,
                 profilePic: `images/chucknorris.jpeg`,
-                tweetText: `I went last year😴`,
+                tweetText: `Yo ya fui el año pasado😴`,
             },
         ],
         isLiked: false,
@@ -38,17 +39,17 @@ export const tweetsData = [
         profilePic: `images/flower.png`,
         likes: 10,
         retweets: 3,
-        tweetText: `Are you a coder if you only know HTML?`,
+        tweetText: `Eres programador si solo sabes HTML?`,
         replies: [
             {
                 handle: `@StackOverflower ☣️`,
                 profilePic: `images/overflow.png`,
-                tweetText: `No. Onviosuly not. Go get a job in McDonald's.`,
+                tweetText: `No. Obviamente no, busca trabajo en McDonald's.`,
             },
             {
                 handle: `@YummyCoder64`,
                 profilePic: `images/love.png`,
-                tweetText: `You are wonderful just as you are! ❤️`,
+                tweetText: `Eres maravilloso tal como eres! ❤️`,
             },
         ],
         isLiked: false,
