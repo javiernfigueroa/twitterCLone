@@ -1,9 +1,6 @@
 import { tweetsData } from "./data.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
-const tweetInput = document.getElementById("tweet-input");
-const feed = document.getElementById("feed");
-
 document.addEventListener("click", function (e) {
   if (e.target.dataset.like) {
     handleLikeClick(e.target.dataset.like);
@@ -47,18 +44,23 @@ function handleReplyClick(replyId) {
 }
 
 function handleTweetBtnClick() {
-  tweetsData.unshift({
-    handle: `@javier_figueroa 💎`,
-        profilePic: `images/javier.jpeg`,
-        likes: 0,
-        retweets: 0,
-        tweetText: `${tweetInput.value}`,
-        replies: [],
-        isLiked: false,
-        isRetweeted: false,
-        uuid: uuidv4(),
-  })
-  renderTweets()
+  const tweetInput = document.getElementById("tweet-input");
+
+  if (tweetInput.value != "") {
+    tweetsData.unshift({
+      handle: `@javier_figueroa 💎`,
+      profilePic: `images/javier.jpeg`,
+      likes: 0,
+      retweets: 0,
+      tweetText: `${tweetInput.value}`,
+      replies: [],
+      isLiked: false,
+      isRetweeted: false,
+      uuid: uuidv4(),
+    });
+  }
+  tweetInput.value = "";
+  renderTweets();
 }
 
 function getFeedHtml() {
@@ -124,7 +126,7 @@ function getFeedHtml() {
 }
 
 function renderTweets() {
-  feed.innerHTML = getFeedHtml();
+  document.getElementById("feed").innerHTML = getFeedHtml();
 }
 
 renderTweets();
