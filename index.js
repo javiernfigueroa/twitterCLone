@@ -1,12 +1,8 @@
 import { tweetsData } from "./data.js";
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
 const tweetInput = document.getElementById("tweet-input");
-const tweetBtn = document.getElementById("tweet-btn");
 const feed = document.getElementById("feed");
-
-tweetBtn.addEventListener("click", function () {
-  console.log(tweetInput.value);
-});
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.like) {
@@ -15,6 +11,8 @@ document.addEventListener("click", function (e) {
     handleReplyClick(e.target.dataset.reply);
   } else if (e.target.dataset.retweet) {
     handleRtClick(e.target.dataset.retweet);
+  } else if (e.target.id === "tweet-btn") {
+    handleTweetBtnClick();
   }
 });
 
@@ -45,7 +43,22 @@ function handleRtClick(tweetId) {
 }
 
 function handleReplyClick(replyId) {
-    document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
+  document.getElementById(`replies-${replyId}`).classList.toggle("hidden");
+}
+
+function handleTweetBtnClick() {
+  tweetsData.unshift({
+    handle: `@javier_figueroa 💎`,
+        profilePic: `images/javier.jpeg`,
+        likes: 0,
+        retweets: 0,
+        tweetText: `${tweetInput.value}`,
+        replies: [],
+        isLiked: false,
+        isRetweeted: false,
+        uuid: uuidv4(),
+  })
+  renderTweets()
 }
 
 function getFeedHtml() {
