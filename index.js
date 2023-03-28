@@ -12,7 +12,7 @@ document.addEventListener("click", function (e) {
   if (e.target.dataset.like) {
     handleLikeClick(e.target.dataset.like);
   } else if (e.target.dataset.reply) {
-    console.log(e.target.dataset.reply);
+    handleReplyClick(e.target.dataset.reply);
   } else if (e.target.dataset.retweet) {
     handleRtClick(e.target.dataset.retweet);
   }
@@ -42,6 +42,10 @@ function handleRtClick(tweetId) {
   }
   targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted;
   renderTweets();
+}
+
+function handleReplyClick(replyId) {
+    document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
 }
 
 function getFeedHtml() {
@@ -97,7 +101,7 @@ function getFeedHtml() {
             </div>   
         </div>            
     </div>
-    <div id="replies-${tweets.uuid}">
+    <div class="hidden" id="replies-${tweets.uuid}">
         ${repliesHtml}
     </div> 
 </div>
